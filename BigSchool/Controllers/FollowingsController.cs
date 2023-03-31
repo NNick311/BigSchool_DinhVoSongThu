@@ -20,6 +20,7 @@ namespace BigSchool.Controllers
             _dbContext = new ApplicationDbContext();
         }
 
+
         [System.Web.Http.HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
@@ -37,7 +38,6 @@ namespace BigSchool.Controllers
 
             _dbContext.Followings.Add(following);
             _dbContext.SaveChanges();
-
             return Ok();
         }
 
@@ -48,7 +48,6 @@ namespace BigSchool.Controllers
                 .Where(x => x.FollowerId == followerId && x.FolloweeId == followeeId)
                 .Include(x => x.Follower)
                 .Include(x => x.Followee).SingleOrDefault();
-
             _dbContext.Followings.Remove(follow);
             _dbContext.SaveChanges();
             return Ok();
