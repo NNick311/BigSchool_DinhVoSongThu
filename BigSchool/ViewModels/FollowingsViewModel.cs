@@ -10,5 +10,6 @@ namespace BigSchool.ViewModels
     {
         public IEnumerable<ApplicationUser> Followings { get; set; }
         public bool ShowAction { get; set; }
+
     }
 }
